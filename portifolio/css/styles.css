@@ -1,0 +1,303 @@
+/* =============================================
+   1. VARIÁVEIS GLOBAIS E FONTES
+   - É aqui que você muda as cores e fontes principais do site inteiro.
+   ============================================= */
+
+/* Importa as fontes do Google Fonts usadas no template */
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700');
+@import url('https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i');
+
+:root {
+  /*
+   * AQUI ESTÁ A COR PRINCIPAL DO SEU TEMA!
+   * Altere este código hexadecimal para mudar a cor da barra lateral,
+   * do seu nome e dos links.
+   * Exemplo: para um azul, use #0d6efd. Para um verde, #198754.
+   */
+  --bs-primary: #8504cfff; /* Laranja queimado padrão do template */
+
+  /* Cores de texto e fundo */
+  --bs-dark-gray: #343a40;
+  --bs-gray: #6c757d;
+  --bs-white: #ffffffff;
+
+  /* Definição das famílias de fontes */
+  --font-heading: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* =============================================
+   2. ESTILOS DE BASE E RESET
+   - Define o estilo padrão para o corpo (body), títulos e parágrafos.
+   ============================================= */
+
+/* Reset básico e configuração de rolagem suave */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  padding-top: 3.375rem; /* Espaçamento para a barra de navegação no celular */
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--bs-gray);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Media Query para telas grandes (desktop) */
+@media (min-width: 992px) {
+  body {
+    padding-top: 0;
+    padding-left: 17rem; /* Espaço para a barra lateral fixa */
+  }
+}
+
+/* Estilos para Títulos (h1, h2, etc.) */
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--bs-dark-gray);
+  text-transform: uppercase;
+}
+
+h1, .h1 {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+h2, .h2 {
+  font-size: 3.5rem;
+}
+
+/* Estilo para Parágrafos */
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+p.lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+/* Estilo para links */
+a {
+  color: var(--bs-primary);
+}
+a:hover, a:focus, a:active {
+  color: darken(var(--bs-primary), 10%);
+}
+
+/* Classe para destacar texto com a cor primária */
+.text-primary {
+  color: var(--bs-primary) !important;
+}
+
+/* Linha horizontal */
+hr {
+  margin: 1rem 0;
+}
+
+/* =============================================
+   3. BARRA DE NAVEGAÇÃO LATERAL (sideNav)
+   - Estilos para o menu lateral fixo.
+   ============================================= */
+
+#sideNav {
+  background-color: var(--bs-primary);
+}
+
+#sideNav .navbar-nav .nav-item .nav-link {
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7); /* ADICIONADO: Cor padrão (branco semi-transparente) */
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover,
+#sideNav .navbar-nav .nav-item .nav-link.active {
+  color: #fff; /* ADICIONADO: Cor ao passar o mouse ou quando ativo (branco sólido) */
+}
+
+#sideNav .navbar-toggler:focus {
+  outline-color: darken(var(--bs-primary), 20%);
+}
+
+/* Estilos da barra lateral em telas de DESKTOP (acima de 992px) */
+@media (min-width: 992px) {
+  #sideNav {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+    height: 100vh;
+  }
+  #sideNav .navbar-brand {
+    display: flex;
+    margin: auto auto 0;
+    padding: 0.5rem;
+  }
+  #sideNav .navbar-brand .img-profile {
+    max-width: 10rem;
+    max-height: 10rem;
+    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+  }
+  #sideNav .navbar-collapse {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 0;
+    width: 100%;
+    margin-bottom: auto;
+  }
+  #sideNav .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item {
+    display: block;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+    display: block;
+  }
+}
+
+/* =============================================
+   4. CONTEÚDO PRINCIPAL (Seções)
+   - Estilos para as seções como "Sobre" e "Portifólio" e outros.
+   ============================================= */
+
+/* ESTILOS COMUNS PARA AMBAS AS SEÇÕES */
+section.resume-section,
+section.resume-section2,
+section.resume-section3 {
+  display: flex;
+  padding: 5rem 1rem; /* Aumentei o padding padrão para ficar melhor */
+  max-width: 75rem;
+  width: 100%;
+}
+
+/* ALINHAMENTO ESPECÍFICO: Seção "Sobre" (Centralizado) */
+section.resume-section {
+  align-items: center;
+}
+
+/* ALINHAMENTO ESPECÍFICO: Seção "Portifolio" (Alinhado ao Topo) */
+section.resume-section2 {
+  align-items: flex-start; /* Esta é a correção para alinhar no topo */
+}
+
+/* ALINHAMENTO ESPECÍFICO: Seção "Curriculo" (Alinhado ao Topo) */
+section.resume-section3 {
+  align-items: flex-start; /* Esta é a correção para alinhar no topo */
+}
+
+
+/* ESTILOS RESPONSIVOS PARA AMBAS AS SEÇÕES */
+@media (min-width: 768px) {
+  /* A altura mínima de 100% da tela se aplica APENAS à primeira seção ("Sobre") */
+  section.resume-section {
+    min-height: 100vh; 
+  }
+
+  /* As outras seções terão altura baseada no conteúdo delas */
+  section.resume-section2,
+  section.resume-section3 {
+    min-height: auto; /* Garante que a altura seja automática */
+  }
+}
+
+@media (min-width: 992px) {
+  section.resume-section,
+  section.resume-section2,
+  section.resume-section3 {
+    padding: 5rem 3rem; /* Espaçamento maior para telas de desktop */
+  }
+}
+
+/* =============================================
+   5. ÍCONES DE REDES SOCIAIS
+   - Estilos para os ícones do GitHub, LinkedIn, etc.
+   ============================================= */
+
+.Linguagens {
+  height: 100px;
+}
+
+.social-icons .social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: var(--bs-dark-gray);
+  color: var(--bs-white);
+  border-radius: 100%;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+}
+.social-icons .social-icon:last-child {
+  margin-right: 0;
+}
+.social-icons .social-icon:hover {
+  background-color: var(--bs-primary);
+}
+
+.Carlos {
+  font-family: AQUI
+}
+
+/* =============================================
+   6. TEMA ESCURO (FUNDO PRETO)
+   - Adicionado para alterar o fundo e as cores do texto.
+   ============================================= */
+
+body {
+  background-color: #212529; /* Um preto suave, mais confortável aos olhos */
+  color: rgba(255, 255, 255, 0.7); /* Cor do texto principal (parágrafos) para um branco suave */
+}
+
+/* Altera a cor dos títulos para branco para garantir a leitura */
+h1, .h1, h2, .h2, h3, .h3 {
+  color: #fff;
+}
+
+/* Altera a cor do subtítulo (email) para um cinza mais claro */
+.subheading {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* =============================================
+   7. ESTILOS PERSONALIZADOS DA SEÇÃO CURRÍCULO
+   ============================================= */
+
+.tituloCurriculo{
+  font-size: 1.5rem;
+  color: #d5d6d6ce;
+}
+
+.languages-icons {
+  display: flex; /* Alinha os ícones um ao lado do outro */
+  flex-wrap: wrap; /* Permite que os ícones quebrem a linha em telas menores */
+  gap: 1.5rem; /* Cria um espaçamento entre os ícones */
+}
+
+.Linguagens {
+  height: 60px; /* Reduzi um pouco a altura para um visual mais delicado */
+  width: auto; /* Garante que a proporção da imagem seja mantida */
+}
